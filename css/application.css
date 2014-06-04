@@ -18,6 +18,7 @@ body {
 header {
 	height: 150px;
 	background: #818994;
+	z-index: 8;
 }
 
 #logo {
@@ -34,109 +35,130 @@ header {
 	margin: 60px 60px 0 0;
 }
 
-/* css for navigation */
+/* css for navigation bar */
 
 #nav {
-	background: #95EAFF;
-	height: 35px;
-	font-size: 15px;
-	font-weight: 700;
-	overflow: hidden;
+	height: 30px;
 }
 
-.navbar {
+#nav ul {
 	margin: 0;
 	padding: 0;
+	position: relative;
+	z-index: 99;
+	list-style: none;
 }
 
-.navbar li {
-	list-style: none;
+#nav > ul > li {
+	position: relative;
 	float: left; 
 }
 
-.navbar li a {
+#nav > ul > li > a {
 	display: block;
-	padding: 0 30px;
-	line-height: 35px;
-	color: black;
-	text-decoration: none; 
-}
+	text-align: center;
+	line-height: 30px;
+	text-decoration: none;
+	color: #003399;
 	
-.navbar li ul {
-	display: none; 
-	font-size: 12px;
-	font-weight: normal;
+	transition: 0.3s;
 }
 
-.navbar li:hover ul, .navbar li.hover ul {
+#nav > ul > li > a:hover {
+	background: #FFFFFF;
+	color: #95EAFF;
+}
+
+#nav ul ul {
+	width: 160px;
+	position: relative;
+	z-index: 99;
+	height: 0;
+	overflow: hidden;
+	
+	-webkit-transition: height 0.3s ease-in;
+	-moz-transition: height 0.3s ease-in;
+	-o-transition: height 0.3s ease-in;
+	-ms-transition: height 0.3s ease-in;
+	transition: height 0.3s ease-in;
+}
+
+#nav > ul > li:hover ul, #nav > ul > li > a:hover ul {
+	height: 210px;
+}
+
+#nav ul ul li {
+	background: #D2F7FF;
+	width: 160px;
+	
+	-webkit-transition: background-color 0.3s ease;
+	-moz-transition: background-color 0.3s ease;
+	-o-transition: background-color 0.3s ease;
+	-ms-transition: background-color 0.3s ease;
+	transition: background-color 0.3s ease;
+}
+
+#nav ul ul li:hover {
+	background: #95EAFF;
+}
+
+#nav ul ul li a {
 	display: block;
-	position: absolute;
-	z-index: 1;
-	padding: 0;
-	margin-left: -1px;
-}
-	
-.navbar li:hover li, .navbar li.hover li {
-	float: none;
-}
-	
-.navbar li:hover li a, .navbar li.hover li a {
-	background-color: #FFFFFF;
-	border-left: 1px solid #000000;
-	border-right: 1px solid #000000;
-	color: #000000;
-	font-weight: normal;
-	padding: 0 8px;
-	line-height: 25px;
-}
-
-.lastdrop {
-	border-bottom: 1px solid;
-	border-bottom-left-radius: 7px;
-	border-bottom-right-radius: 7px;
-}
-	
-.navbar li li a:hover {
-	color: #990000;
-}
-
-.navbar a:link, .navbar a:visited {
-	color: #666666;
+	margin: 0 12px;
+	padding: 4px 0;	
+	color: #003399;
 	text-decoration: none;
 }
 
-.navbar a:hover {
-	background: #FFFFFF;
-	color: #990000;
+#nav ul ul li a:hover, #nav ul ul li:hover > a {
+	color: #FFFFFF;
+}
+
+#nav ul ul li + li a {
+	border-top: 1px dotted #999999;
+}
+
+#nav ul ul li:hover + li a {
+	border-top: 1px solid #D2F7FF;
 }
 
 /* css for content */
 
 #body {
-	background: #95EAFF;
-	height: 600px;
+	background: #D2F7FF;
+}
+
+#relpic {
+	position: relative;
+	height: 350px;
 }
 
 #slideshow {
 	height: 350px;
+	width: 960px;
 	background: red;
+	position: absolute;
+}
+
+#content {
+	height: 290px;
+	background: #FFFFFF;
 }
 
 .columns {
 	width: 200px;
-	background: #FFFFFF;
-	margin: 20px 20px;
-	border-radius: 6px;
+	padding: 20px 20px;
 	float: left;
 }
 
 .columntitle {
-	font-size: 25px;
-	margin: 0;
+	font-size: 20px;
+	margin: 10px 0;
+	text-transform: uppercase;
 }
 
 .columnpic {
-	height: 50px;
+	height: 80px;
 	background: grey;
 }
 
@@ -165,7 +187,6 @@ footer {
 
 a:link, a:visited {
 	color: blue;
-	font-weight: 700;
 	text-decoration: none;
 }
 
